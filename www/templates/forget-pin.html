@@ -1,0 +1,21 @@
+<ion-modal-view>
+  <ion-header-bar>
+    <h1 class="title">Forget Pin</h1>
+  </ion-header-bar>
+  <ion-content>
+    <form ng-submit="doLogin()" autocomplete="off">
+      <div class="list">
+        <label class="item item-input">
+          <input type="text" ng-model="loginData.username"  placeholder="Enter Email...">
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" type="submit">Reset</button>
+        </label>
+      </div>
+    </form>
+    <div>
+      <a ui-sref="login">Login</a>
+      <span>Not a user</span> <a ui-sref="register">Register</a>
+    </div>
+  </ion-content>
+</ion-modal-view>

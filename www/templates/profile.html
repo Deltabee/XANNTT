@@ -1,0 +1,38 @@
+<ion-view title="Edit Profile">
+  <ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon" ng-click="openMenuLeft()"></button>
+  </ion-nav-buttons>        
+  <ion-content padding="true">
+   <div class="row">
+   		<div class="col col-10"></div>
+   		<div class="col col-80">
+   			<div class="card" ng-show="Message">
+			   <div class="item item-text-wrap card-calm" ng-show="onSubmit">{{Message}}</div>
+			   <div class="item item-text-wrap card-assertive" ng-show="onErr">{{Message}}</div>
+			</div>
+	   		<form name="loginFrm" novalidate>
+	   			<div class="box">
+	   				<div class="row box">
+		   				<div class="col col-50"><span><b>Name</b></span></div>
+		   				<div class="col col-50"><input type="text" name="name" placeholder="Enter Name" ng-model="userData.name" required><p ng-show="loginFrm.name.$invalid && !loginFrm.name.$pristine" class="help-block red-text">Please enter name</p></div>
+		   			</div>
+		   			<div class="row box">
+		   				<div class="col col-50"><span><b>Mobile</b></span></div>
+		   				<div class="col col-50"><input type="text" name="mobile" minlength="10" maxlength="10" placeholder="Enter Mobile" ng-model="userData.mobile_number" required><p ng-show="loginFrm.mobile.$invalid && !loginFrm.mobile.$pristine" class="help-block red-text">Please enter mobile number</p></div>
+		   			</div>
+		   			<div class="row box">
+		   				<div class="col col-50"><span><b>pin</b></span></div>
+		   				<div class="col col-50"><input type="password" placeholder="Enter Pin" minlength="5" maxlength="5" name="pin" ng-model="userData.pin" required><p ng-show="loginFrm.pin.$invalid && !loginFrm.pin.$pristine" class="help-block red-text">Please enter pin</p></div>
+		   			</div>
+		   		</div>
+	   			<div class="row">
+	   				<div class="col col-20"></div>
+	   				<div class="col col-60" align="center"><button class="ion-btn" ng-disabled="loginFrm.$invalid"><i class="ion-play ion-icon" ng-click="updateDetails()"></i></button></div>
+	   				<div class="col col-20"></div>
+	   			</div>
+	   		</form>
+   		</div>
+   		<div class="col col-10"></div>
+   </div>
+  </ion-content>
+</ion-view>

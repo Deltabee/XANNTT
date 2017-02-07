@@ -1,0 +1,30 @@
+<ion-view title="Sessions">
+  <ion-nav-buttons side="left">
+    <button class="button button-icon button-clear ion-navicon" ng-click="openMenuLeft()"></button>
+  </ion-nav-buttons>        
+  <ion-content padding="true">
+   <div class="row">
+   		<div class="col col-10"></div>
+   		<div class="col col-80">
+   			<div class="row">
+   				<div class="col col-50"><span><b>Vendor</b></span></div>
+   				<div class="col col-50"><span><b>Start Time</b></span></div>
+   			</div>
+   		</div>
+   		<div class="col col-10"></div>
+   	</div>
+   	<div class="row" ng-repeat="History in AllSessions | orderBy:'-start_time'">
+   		<div class="col col-10"></div>
+   		<div class="col col-80">
+   			<div class="box">
+   				<div class="row">
+	   				<div class="col col-40"><span>{{History.vendor_id}}</span></div>
+	   				<div class="col col-40"><span>{{History.start_time | date:'dd-MMM-yy hh:mm:ss'}}</span></div>
+	   				<div class="col col-20"><span><i class="ion-close" ng-click="closeSession(History.session_id)"></i></span></div>
+   				</div>
+   			</div>
+   		</div>
+   		<div class="col col-10"></div>
+   	</div>
+  </ion-content>
+</ion-view>

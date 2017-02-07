@@ -1,0 +1,25 @@
+/* Empty. Add your own CSS if you like */
+.red-text {
+    color: red !important;
+}
+.box {
+    width: 100%;
+    border: 1px solid #ccc;
+    background-size: cover;
+    overflow: hidden
+}
+.ion-icon{
+	font-size: 3em;
+}
+.ion-btn{
+	background: none;
+    border: none;
+}
+.card-calm{
+	background-color: #33cd5f;
+    color: white;
+}
+.card-assertive{
+	background-color: #EF473A;
+    color: white;
+}
