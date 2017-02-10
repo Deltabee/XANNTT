@@ -1,43 +1,45 @@
 <ion-view title="History">
-  <ion-nav-buttons side="left">
-    <button class="button button-icon button-clear ion-navicon" ng-click="openMenuLeft()"></button>
-  </ion-nav-buttons>        
-  <ion-content padding="true">
-   	<div class="row">
-   		<div class="col col-10"></div>
-   		<div class="col col-80">
-   			<div class="row">
-   				<div class="col col-50"><span><b>Vendor</b></span></div>
-   				<div class="col col-50"><span><b>Total Time</b></span></div>
-   			</div>
-   		</div>
-   		<div class="col col-10"></div>
-   	</div>
-   	<div class="row" ng-repeat="History in VideoHistory | orderBy:'-id'">
-   		<div class="col col-10"></div>
-   		<div class="col col-80">
-   			<div class="box">
-   				<div class="row" ng-click="openModal($index)">
-	   				<div class="col col-50"><span>{{History.name}}</span></div>
-	   				<div class="col col-50"><span>{{History.total_time_clocked}}</span></div>
-   				</div>
-   				<div ng-show="opnenModel[{{$index}}]">
-	   				<div class="row">
-		   				<div class="col col-40"><span>Multiplier</span></div>
-		   				<div class="col col-60"><span>{{History.cuurent_multiplier}}x</span></div>
-	   				</div>
-	   				<div class="row">
-		   				<div class="col col-40"><span>Start Time</span></div>
-		   				<div class="col col-60"><span>{{History.start_time | date:'dd-MMM-yy hh:mm:ss'}}</span></div>
-	   				</div>
-	   				<div class="row">
-		   				<div class="col col-40"><span>View Time</span></div>
-		   				<div class="col col-60"><span>{{History.view_time}}</span></div>
-	   				</div>
-   				</div>
-   			</div>
-   		</div>
-   		<div class="col col-10"></div>
-   	</div>
-  </ion-content>
+    <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" ng-click="openMenuLeft()"></button>
+    </ion-nav-buttons>
+    <ion-content padding="true">
+        <div class="row">
+            <div class="col col-10"></div>
+            <div class="col col-80">
+                <div class="row">
+                    <div class="col col-50"><span><b>Vendor</b></span></div>
+                    <div class="col col-50"><span><b>Total Time</b></span></div>
+                </div>
+            </div>
+            <div class="col col-10"></div>
+        </div>
+        <div class="row" ng-repeat="History in VideoHistory | orderBy:'-id'">
+            <div class="col col-10"></div>
+            <div class="col col-80">
+                <div class="box">
+                    <div class="row" ng-click="openModal($index)">
+                        <div class="col col-50"><span>{{History.name}}</span></div>
+                        <div class="col col-50"><span>{{History.total_time_clocked}}</span></div>
+                    </div>
+                    <div ng-show="opnenModel[{{$index}}]">
+                        <div class="row">
+                            <div class="col col-40"><span>Multiplier</span></div>
+                            <div class="col col-60"><span>{{History.cuurent_multiplier}}x</span></div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-40"><span>Start Time</span></div>
+                            <div class="col col-60"><span>{{History.start_time | date:'dd-MMM-yy hh:mm:ss'}}</span></div>
+                        </div>
+                        <div class="row">
+                            <div class="col col-40"><span>View Time</span></div>
+                            <div class="col col-60"><span>{{History.view_time}}</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col col-10"></div>
+        </div>
+        <ion-infinite-scroll ng-if="moreDataCanBeLoaded" on-infinite="loadData()" distance="1%">
+        </ion-infinite-scroll>
+    </ion-content>
 </ion-view>

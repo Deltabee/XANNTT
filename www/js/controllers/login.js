@@ -30,8 +30,34 @@ app.controller('forgotPasswordCtrl', ['$scope', function($scope){
 
 /*Rtegistration Ctrl*/
 
-app.controller('registrationCtrl', ['$scope', function($scope){
+app.controller('registrationCtrl', ['$scope','ApiURL','$http','$timeout','$state', function($scope, ApiURL, $http,$timeout, $state){
+	$scope.loginData = {};
+	$scope.onSubmit = false;
 	
+	$scope.Register = function(){
+		var data = {
+			name: $scope.loginData.first_name+' '+$scope.loginData.last_name,
+			mobile: $scope.loginData.mobile,
+			pin: $scope.loginData.password
+		}
+		$http.post(ApiURL+'register', data).success(function(response){
+			if (response.hasOwnProperty('error')) {
+				$scope.onSubmit = false;
+
+				$scope.onErr = true;
+
+				$scope.Message = response.error;
+			}else if (response.hasOwnProperty('success')) {
+				$scope.onErr = false;
+				$scope.onSubmit = true;
+
+				$scope.Message = "Registered Successfully!";
+				$timeout(function(){
+					$state.go('login');
+				}, 2000);
+			}
+		});
+	}
 }]);
 
 /*Sign Out Ctrl*/

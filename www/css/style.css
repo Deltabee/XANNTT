@@ -5,8 +5,10 @@
 .box {
     width: 100%;
     border: 1px solid #ccc;
-    background-size: cover;
-    overflow: hidden
+    background-size: 100%;
+    background-repeat: no-repeat;
+    text-align: center;
+    background-position: center;
 }
 .ion-icon{
 	font-size: 3em;
@@ -22,4 +24,37 @@
 .card-assertive{
 	background-color: #EF473A;
     color: white;
+}
+.multilier-icon {
+    background: #000;
+    width: 3em;
+    float: right;
+    border-radius: 2em;
+    height: 3em;
+    position: relative;
+    right: -1.4em;
+    top: -1.4em;
+    text-align: center;
+    padding: 0.6em 0;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 900;
+    border: 1px solid #fff;
+}
+.vendors-box{
+    margin-top: 1.5em;
+    height: 120px;
+}  
+
+.margin-top-1em  {
+    margin-top: 1em;
+}
+.center-align-text, .center-align{
+    text-align: center;
+}  
+.no-border{
+    border: none;
+}
+.padding-1em {
+    padding: 1em;
 }

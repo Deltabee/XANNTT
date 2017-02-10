@@ -23,103 +23,103 @@ app.run(function($ionicPlatform) {
 })
 
 app.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
-    /*$ionicConfigProvider.views.maxCache(0);*/
+    $ionicConfigProvider.views.maxCache(0);
     $stateProvider
 
         .state('app', {
-            url: '/app',
-            abstract: true,
-            templateUrl: 'templates/menu.html',
-            controller: 'menuCtrl'
-        })
+        url: '/app',
+        abstract: true,
+        templateUrl: 'templates/menu.html',
+        controller: 'menuCtrl'
+    })
 
-        .state('login', {
-            url: '/login',
-            templateUrl: 'templates/login.html',
-            controller: 'loginCtrl'
-        })
+    .state('login', {
+        url: '/login',
+        templateUrl: 'templates/login.html',
+        controller: 'loginCtrl'
+    })
 
-        .state('forget-pin', {
-            url: '/forget-pin',
-            templateUrl: 'templates/forget-pin.html',
-            controller: 'forgotPasswordCtrl'
-        })
+    .state('forget-pin', {
+        url: '/forget-pin',
+        templateUrl: 'templates/forget-pin.html',
+        controller: 'forgotPasswordCtrl'
+    })
 
-        .state('register', {
-            url: '/register',
-            templateUrl: 'templates/register.html',
-            controller: 'registrationCtrl'
-        })
+    .state('register', {
+        url: '/register',
+        templateUrl: 'templates/register.html',
+        controller: 'registrationCtrl'
+    })
 
-        .state('app.home', {
-            url: '/home',
-            views: {
-                'menuContent': {
-                    templateUrl: 'templates/home.html',
-                    controller: 'HomeCtrl'
-                }
+    .state('app.home', {
+        url: '/home',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/home.html',
+                controller: 'HomeCtrl'
             }
-        })
+        }
+    })
 
-        .state('app.transfer', {
-            url: '/transfer',
-            views: {
-                'menuContent': {
-                    templateUrl: 'templates/transfer.html',
-                    controller: 'transferCtrl'
-                }
+    .state('app.transfer', {
+        url: '/transfer',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/transfer.html',
+                controller: 'transferCtrl'
             }
-        })
+        }
+    })
 
-        .state('app.sessions', {
-            url: '/sessions',
-            views: {
-                'menuContent': {
-                    templateUrl: 'templates/sessions.html',
-                    controller: 'sessionsCtrl'
-                }
+    .state('app.sessions', {
+        url: '/sessions',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/sessions.html',
+                controller: 'sessionsCtrl'
             }
-        })
+        }
+    })
 
-        .state('app.history', {
-            url: '/history',
-            views: {
-                'menuContent': {
-                    templateUrl: 'templates/history.html',
-                    controller: 'historyCtrl'
-                }
+    .state('app.history', {
+        url: '/history',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/history.html',
+                controller: 'historyCtrl'
             }
-        })
+        }
+    })
 
-        .state('app.profile', {
-            url: '/profile',
-            views: {
-                'menuContent': {
-                    templateUrl: 'templates/profile.html',
-                    controller: 'profileCtrl'
-                }
+    .state('app.profile', {
+        url: '/profile',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/profile.html',
+                controller: 'profileCtrl'
             }
-        })
+        }
+    })
 
-        .state('app.signout', {
-            url: '/signout',
-            views: {
-                'menuContent': {
-                    templateUrl: 'templates/signout.html',
-                    controller: 'signoutCtrl'
-                }
+    .state('app.signout', {
+        url: '/signout',
+        views: {
+            'menuContent': {
+                templateUrl: 'templates/signout.html',
+                controller: 'signoutCtrl'
             }
-        });
+        }
+    });
     // if none of the above states are matched, use this as the fallback
     $urlRouterProvider.otherwise('login');
 });
 
 app.value('ApiURL', 'http://localhost:8080/');
 
-app.controller('menuCtrl', ['$scope','$ionicModal','$timeout','$ionicSideMenuDelegate','$state', function($scope, $ionicModal, $timeout, $ionicSideMenuDelegate, $state) {
-   $scope.userData = JSON.parse(window.localStorage.getItem('userDetails'));
-   $scope.openMenuLeft = function() {
-    $ionicSideMenuDelegate.toggleLeft();
-  };
-  
+app.controller('menuCtrl', ['$scope', '$ionicModal', '$timeout', '$ionicSideMenuDelegate', '$state', function($scope, $ionicModal, $timeout, $ionicSideMenuDelegate, $state) {
+    $scope.userData = JSON.parse(window.localStorage.getItem('userDetails'));
+    $scope.openMenuLeft = function() {
+        $ionicSideMenuDelegate.toggleLeft();
+    };
+
 }]);

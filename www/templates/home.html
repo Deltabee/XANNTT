@@ -6,7 +6,9 @@
    	<div class = "row" ng-repeat="vendor in vendors">
 	   <div class = "col col-20"></div>
 	   <div class = "col col-60">
-	   		<div class="box" style="background-image: url(http://media.gettyimages.com/photos/row-of-ionic-marble-columns-picture-id136254317?s=170667a); height: 120px"></div>
+	   		<div class="box vendors-box" style="background-image: url({{vendor.file}});">
+	   			<div class="multilier-icon">{{vendor.multiplier}}x</div>
+	   		</div>
 	   </div>
 	   <div class = "col col-20"></div>
 	</div>

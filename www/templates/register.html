@@ -1,33 +1,51 @@
-<ion-modal-view>
+<ion-view title="Register">
   <ion-header-bar>
     <h1 class="title">Register Yourself</h1>
   </ion-header-bar>
   <ion-content>
-    <form ng-submit="doLogin()" autocomplete="off">
-      <div class="list">
-        <label class="item item-input">
-          <input type="text" ng-model="loginData.name"  placeholder="Enter Full Name...">
-        </label>
-        <label class="item item-input">
-          <input type="text" ng-model="loginData.mobile"  placeholder="Enter Mobile Number...">
-        </label>
-        <label class="item item-input">
-          <input type="email" ng-model="loginData.email"  placeholder="Enter Email...">
-        </label>
-        <label class="item item-input">
-          <input type="password" ng-model="loginData.password" placeholder="Enter Pin...">
-        </label>
-        <label class="item item-input">
-          <input type="password" ng-model="loginData.password" placeholder="Confirm Pin...">
-        </label>
-        <label class="item">
-          <button class="button button-block button-positive" type="submit">Register</button>
-        </label>
+    <div class="row">
+      <div class="col col-10"></div>
+      <div class="col col-80">
+        <div class="card" ng-show="Message">
+          <div class="item item-text-wrap card-calm" ng-show="onSubmit">{{Message}}</div>
+          <div class="item item-text-wrap card-assertive" ng-show="onErr">{{Message}}</div>
+        </div>
+        <form name="loginFrm" autocomplete="off">
+          <div class="list">
+            <label class="item item-input margin-top-1em">
+              <input type="text" name="first_name" class="center-align" ng-model="loginData.first_name"  placeholder="Enter First Name..." required>
+              
+            </label>
+            <p ng-show="loginFrm.first_name.$invalid && !loginFrm.first_name.$pristine" class="help-block red-text">Please enter first name</p>
+            <label class="item item-input margin-top-1em">
+              <input type="text" name="last_name" class="center-align" ng-model="loginData.last_name"  placeholder="Enter Last Name..." required>
+            </label>
+            <p ng-show="loginFrm.last_name.$invalid && !loginFrm.last_name.$pristine" class="help-block red-text">Please enter last name</p>
+            <label class="item item-input margin-top-1em">
+              <input type="text" name="mobile" minlength="10" maxlength="10" pattern="[0-9]{10}"  class="center-align" ng-model="loginData.mobile"  placeholder="Enter Mobile Number..." required>
+            </label>
+            <p ng-show="loginFrm.mobile.$invalid && !loginFrm.mobile.$pristine" class="help-block red-text">Please enter 10 digit valid mobile number</p>
+            <label class="item item-input margin-top-1em">
+              <input type="password" name="pin" class="center-align" ng-model="loginData.password" placeholder="Enter Pin..." required>
+            </label>
+            <p ng-show="loginFrm.pin.$invalid && !loginFrm.pin.$pristine" class="help-block red-text">Please enter pin</p>
+            <label class="item item-input margin-top-1em">
+              <input type="password" compare-to="loginData.password" name="confirmpin" class="center-align" ng-model="loginData.cpassword" placeholder="Confirm Pin..." required>
+            </label>
+            <p ng-show="loginFrm.confirmpin.$invalid && !loginFrm.confirmpin.$pristine" class="help-block red-text">Please enter same pin</p>
+            <label class="item center-align no-border">
+              <button ng-disabled="loginFrm.$invalid" class="ion-btn" ng-click="Register()" type="submit"><i class="ion-play ion-icon"></i></button>
+            </label>
+          </div>
+        </form>
       </div>
-    </form>
-    <div>
-      <!-- <a ui-sref="forget-pin">Forgot Pin</a> -->
-      <span>Already have an account</span> <a ui-sref="login">Login</a>
+      <div class="col col-10"></div>
+    </div>
+    
+    <div class="row">
+      <div class="col col-10"></div>
+      <div class="col col-80"><span>Already have an account</span> <a ui-sref="login">Login</a></div>
+      <div class="col col-10"></div>
     </div>
   </ion-content>
-</ion-modal-view>
+</ion-view>
