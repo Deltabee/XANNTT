@@ -114,7 +114,7 @@ app.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
     $urlRouterProvider.otherwise('login');
 });
 
-app.value('ApiURL', 'http://localhost:8080/');
+app.value('ApiURL', 'http://xantt.xyz/');
 
 app.controller('menuCtrl', ['$scope', '$ionicModal', '$timeout', '$ionicSideMenuDelegate', '$state', function($scope, $ionicModal, $timeout, $ionicSideMenuDelegate, $state) {
     $scope.userData = JSON.parse(window.localStorage.getItem('userDetails'));
